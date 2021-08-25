@@ -1,4 +1,5 @@
 import { signIn, signOut, useSession } from 'next-auth/client';
+import Footer from '../components/Footer';
 import LoginPage from '../components/LoginPage';
 
 export default function Home() {
@@ -45,6 +46,7 @@ export default function Home() {
           <button onClick={() => signOut()}>Sign out</button>
         </>
       )}
+      <Footer />
     </div>
   );
 }
