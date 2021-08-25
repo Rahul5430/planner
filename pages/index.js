@@ -1,6 +1,8 @@
 import { signIn, signOut, useSession } from 'next-auth/client';
 import Footer from '../components/Footer';
 import LoginPage from '../components/LoginPage';
+import { Spinner } from '@chakra-ui/react';
+import NavBar from '../components/NavBar';
 
 export default function Home() {
   const [session, loading] = useSession();
@@ -30,12 +32,11 @@ export default function Home() {
     <div>
       {loading && <p>Loading...</p>}
       {!session && (
-        <>
           <LoginPage />
-        </>
       )}
       {session && (
         <>
+          <NavBar />
           Signed in as {session.user.name} <br />
           {console.log(session)}
           Name: {data(session.user).name} <br />
