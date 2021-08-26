@@ -28,9 +28,13 @@ const Home = () => {
 
     return (
         <>
-            <NavBar user={data(session.user)} />
-            <div>About</div>
-            <Footer />
+            {session &&
+                <>
+                    (<NavBar user={data(session.user)} />
+                    <div>About</div>
+                    <Footer />)
+                </>
+            }
         </>
     );
 };
