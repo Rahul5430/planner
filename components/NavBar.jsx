@@ -9,13 +9,13 @@ import ColorModeButton from "./ColorModeButton";
 
 const navBtns= [
     {
+        label: "Home",
+    },
+    {
         label: "About",
     },
     {
-        label: "Experience",
-    },
-    {
-        label: "Projects",
+        label: "TimeTable",
     },
     {
         label: "Contact",
@@ -96,7 +96,7 @@ const NavMenu = ({ isOpen, onClose }) => (
     </Drawer>
 );
 
-const NavBar = () => {
+const NavBar = ({ user }) => {
     const primary = useColorModeValue(colors.primary.light, colors.primary.dark);
     const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -110,7 +110,7 @@ const NavBar = () => {
                 justifyContent="center"
                 bg={primary}
             >
-                <Logo />
+                <Logo logo={user.image} userLogo={true} user={user} />
                 <Spacer />
                 <MenuLinks onClose={onClose} />
                 <NavMenu isOpen={isOpen} onClose={onClose} />

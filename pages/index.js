@@ -12,19 +12,19 @@ export default function Home() {
 
     name = user.name;
     email = user.email;
-    img = user.img;
+    img = user.image;
 
     var index1 = user.email.indexOf('.');
     var index2 = user.email.indexOf('@');
     branch = user.email.slice(index1+3, index2-2).toUpperCase();
-    sid = '';
+    sid = (user.name).startsWith('bt2') ? (user.name).slice(2, 10) : '';
 
     return {
       name: name,
       email: email,
       sid: sid,
       branch: branch,
-      img: img,
+      image: img,
     };
   };
 
@@ -36,14 +36,15 @@ export default function Home() {
       )}
       {session && (
         <>
-          <NavBar />
+          {console.log(data(session.user))}
+          <NavBar user={data(session.user)} />
           Signed in as {session.user.name} <br />
           {console.log(session)}
           Name: {data(session.user).name} <br />
           Email: {data(session.user).email} <br />
           SID: {data(session.user).sid} <br />
           Branch: {data(session.user).branch} <br />
-          <img src={data(session.user).img} />
+          <img src={data(session.user).image} />
           <button onClick={() => signOut()}>Sign out</button>
         </>
       )}

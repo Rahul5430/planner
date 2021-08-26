@@ -7,6 +7,7 @@ import links from '../data/footerLinks';
 
 export default function Footer() {
     const bg = useColorModeValue(colors.bg.light, colors.bg.dark);
+    const logo = useColorModeValue("/black.png", "/white.png");
 
     return (
         <Box
@@ -28,7 +29,7 @@ export default function Footer() {
                 justify={{ base: 'center', md: 'space-between' }}
                 align={{ base: 'center', md: 'center' }}
             >
-                <Logo />
+                <Logo logo={logo} />
                 <Text>
                     ©{' '}
                     {new Date().getFullYear()}
