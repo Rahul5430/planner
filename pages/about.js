@@ -30,9 +30,9 @@ const Home = () => {
         <>
             {session &&
                 <>
-                    (<NavBar user={data(session.user)} />
+                    <NavBar user={data(session.user)} />
                     <div>About</div>
-                    <Footer />)
+                    <Footer />
                 </>
             }
         </>

@@ -30,9 +30,9 @@ const Account = () => {
         <>
             {session &&
                 <>
-                    (<NavBar user={data(session.user)} />
+                    <NavBar user={data(session.user)} />
                     <div>Account</div>
-                    <Footer />)
+                    <Footer />
                 </>
             }
         </>
