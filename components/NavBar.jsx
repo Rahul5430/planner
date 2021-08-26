@@ -1,7 +1,8 @@
-import { Box, Button, Drawer, DrawerBody, DrawerContent, DrawerOverlay, Link, Spacer, Stack, useColorModeValue, useDisclosure } from "@chakra-ui/react";
+import { Box, Button, Drawer, DrawerBody, DrawerContent, DrawerOverlay, Spacer, Stack, useColorModeValue, useDisclosure } from "@chakra-ui/react";
 import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 import { animateScroll as scroll, Link as ScrollLink } from "react-scroll";
 import Sticky from "react-stickynode";
+import Link from 'next/link';
 
 import { colors } from "../theme";
 import Logo from "./Logo";
@@ -10,15 +11,19 @@ import ColorModeButton from "./ColorModeButton";
 const navBtns= [
     {
         label: "Home",
+        href: "/home",
     },
     {
         label: "About",
+        href: "/about",
     },
     {
         label: "TimeTable",
+        href: "/timetable",
     },
     {
         label: "Contact",
+        href: "/contact",
     },
 ];
 
@@ -39,22 +44,17 @@ const NavButtons = ({ size, onClose }) => {
             mb={2}
             onClick={onClose}
         >
-            {btn.href ? (
-                <Link href={btn.href} isExternal>
-                    {btn.label}
-                </Link>
-            ) : (
-                <ScrollLink
-                    to={btn.label.toLowerCase()}
-                    href={btn.href}
-                    spy
-                    smooth
-                    offset={-70}
-                    duration={500}
-                    onClick={onClose}
-                >
-                    {btn.label}
-                </ScrollLink>
+            {(<Link
+                to={btn.label.toLowerCase()}
+                href={btn.href}
+                spy
+                smooth
+                offset={-70}
+                duration={500}
+                onClick={onClose}
+            >
+                {btn.label}
+            </Link>
             )}
         </Button>
     ));

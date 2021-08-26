@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { Box, Menu, MenuButton, MenuDivider, MenuGroup, MenuItem, MenuList, useColorModeValue } from '@chakra-ui/react';
 import { animateScroll as scroll } from "react-scroll";
+import Link from 'next/link';
 
 const AccountMenu = ({ logo, userLogo, myStyle, user }) => {
     if (userLogo) {
@@ -23,7 +24,11 @@ const AccountMenu = ({ logo, userLogo, myStyle, user }) => {
                         <MenuItem>SID: {user.sid}</MenuItem>
                     </MenuGroup>
                     <MenuDivider />
-                    <MenuItem>My Account</MenuItem>
+                    <MenuItem>
+                        <Link href="/account" >
+                            My Account
+                        </Link>
+                    </MenuItem>
                 </MenuList>
             </Menu>
         );
